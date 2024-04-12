@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Print Images</title>
+<script>
+window.onload = function() {
+
+    // Извлечение параметров запроса URL
+    var params = new URLSearchParams(window.location.search);
+    var imagesToPrint = params.get('imagesToPrint');
+    printImages(imagesToPrint);
+};
+
+function printImages(imageUrls) {
+    if (imageUrls) {
+        // Разбиваем строку на массив путей к изображениям
+        var imageUrlsArray = imageUrls.split(',');
+        var printWindow = window.open('', '_blank');
+        printWindow.document.write('<html><head><title>Print Images</title></head><body>');
+        for (var j = 0; j < imageUrlsArray.length; j++) {
+            printWindow.document.write('<img src="' + imageUrlsArray[j] + '" style="display: block; page-break-inside: always;">');
+        }
+        printWindow.document.write('<script>window.print();<\/script></body></html>');
+        printWindow.document.close();
+    } else {
+        alert('No images to print.');
+    }
+}
+</script>
+</head>
+<body>
+</body>
+</html>
