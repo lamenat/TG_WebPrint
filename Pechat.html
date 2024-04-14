@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Фрейм со скроллом для выбора изображений</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="imageFrame" class="frame"></div>
+  <center>
+    <button id="addImageButton" class="button">Добавить изображение</button>
+    <div id="options">
+     <select id="orientation" class="select">
+       <option value="книжная">Книжная</option>
+        <option value="альбомная">Альбомная</option>
+     </select><br>
+     <input type="number" id="copies" class="input" placeholder="Количество копий"><br>
+     <select id="sides" class="select">
+       <option value="односторонняя">Односторонняя</option>
+       <option value="двусторонняя">Двусторонняя</option>
+     </select><br>
+     <select id="printers" class="select">
+        <option value="printer1">Принтер 1</option>
+        <option value="printer2">Принтер 2</option>
+         <option value="printer3">Принтер 3</option>
+      </select><br>
+      <button id="printButton" class="button">Печать</button>
+    </div>
+</center>
+  <div id="confirmDialog" class="dialog">
+    <p>Вы действительно хотите напечатать изображение?</p>
+    <button id="confirmYes" class="button">Да</button>
+    <button id="confirmNo" class="button">Нет</button>
+  </div>
+
+  <input type="file" id="imageInput" accept="image/*" style="display: none;">
+  
+  <script src="script.js"></script>
+</body>
+</html>
